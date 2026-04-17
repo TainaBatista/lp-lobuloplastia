@@ -56,11 +56,19 @@ nav {
 }
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav-logo-mark {
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   border: 1.5px solid var(--gold);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  background: var(--cream);
+  overflow: hidden;
+  flex: 0 0 40px;
 }
-.nav-logo-mark svg { width: 18px; height: 18px; }
+.nav-logo-mark img { 
+  width: 95%; height: 95%; 
+  object-fit: contain; 
+  border-radius: 50%;
+  display: block;
+}
 .nav-logo-text { line-height: 1.2; }
 .nav-logo-name {
   font-family: var(--serif); font-size: 17px; font-weight: 400;
@@ -98,12 +106,20 @@ nav {
 .hero-intro-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
 
 .hero-logo-circle {
-  width: 72px; height: 72px; border-radius: 50%;
-  border: 1.5px solid var(--gold);
+  width: 90px; height: 90px; border-radius: 50%;
+  border: 2px solid var(--gold);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 14px;
+  background: var(--cream);
+  overflow: hidden;
+  flex: 0 0 90px;
 }
-.hero-logo-circle svg { width: 36px; height: 36px; }
+.hero-logo-circle img { 
+  width: 90%; height: 90%; 
+  object-fit: contain; 
+  border-radius: 50%;
+  display: block;
+}
 .hero-logo-name {
   font-family: var(--serif); font-size: 22px; font-weight: 400;
   color: var(--gold); letter-spacing: 0.05em; display: block; margin-bottom: 4px;
@@ -423,11 +439,20 @@ section.tinted { background: var(--gold-faint); }
 }
 .cta-final-inner { position: relative; z-index: 1; max-width: 540px; margin: 0 auto; }
 .cta-final-logo-circle {
-  width: 56px; height: 56px; border-radius: 50%;
-  border: 1px solid rgba(201,151,58,0.4);
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 28px;
+  width: 70px; height: 70px; border-radius: 50%;
+  border: 1.5px solid rgba(201,151,58,0.4);
+  display: flex; align-items: center; justify-content: center; 
+  margin: 0 auto 28px;
+  background: rgba(201,151,58,0.05);
+  overflow: hidden;
+  flex: 0 0 70px;
 }
-.cta-final-logo-circle svg { width: 28px; height: 28px; }
+.cta-final-logo-circle img { 
+  width: 90%; height: 90%; 
+  object-fit: contain; 
+  border-radius: 50%;
+  display: block;
+}
 .cta-final h2 {
   font-family: var(--serif); font-size: clamp(30px, 5.5vw, 48px);
   font-weight: 300; line-height: 1.18; margin-bottom: 16px; color: #FAF4EA;
@@ -546,7 +571,7 @@ footer a:hover { color: var(--gold); }
   <div class="nav-inner">
     <a class="nav-logo" href="#">
       <div class="nav-logo-mark">
-        <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista" style="width: 100%; height: 100%; object-fit: contain;">
+        <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista">
       </div>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Tainá Batista</span>
@@ -564,7 +589,7 @@ footer a:hover { color: var(--gold); }
     <div class="hero-intro-ring hero-intro-ring-2"></div>
     <div class="hero-intro-inner">
       <div class="hero-logo-circle">
-        <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista" style="width: 100%; height: 100%; object-fit: contain; padding: 8px;">
+        <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista">
       </div>
       <span class="hero-logo-name">Tainá Batista</span>
       <span class="hero-logo-role">Enfermeira Esteta · Palmas, TO</span>
@@ -939,7 +964,7 @@ footer a:hover { color: var(--gold); }
   <div class="cta-final-ring"></div>
   <div class="cta-final-inner">
     <div class="cta-final-logo-circle">
-      <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista" style="width: 100%; height: 100%; object-fit: contain; padding: 6px;">
+      <img src="logo_taina_batista_dourado_alta_qualidade.png" alt="Tainá Batista">
     </div>
     <h2>Recupere seu lóbulo<br>com quem <em>entende do assunto</em></h2>
     <p>Agende sua consulta de avaliação. Tainá analisa o seu caso, explica o protocolo indicado e você decide com calma e segurança.</p>
