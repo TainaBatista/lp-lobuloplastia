@@ -551,7 +551,83 @@ footer a:hover { color: var(--gold); }
 .hero-photo-col { animation: slideInLeft 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
 .hero-content-col { animation: slideInRight 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
 
-/* ── RESPONSIVE ── */
+/* ── CAROUSEL GALLERY ── */
+.gallery-carousel { position: relative; margin-top: 36px; }
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(201,151,58,0.13);
+  background: var(--cream);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  background: var(--cream);
+}
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201,151,58,0.9);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+.carousel-btn:hover { background: var(--gold); transform: translateY(-50%) scale(1.1); }
+.carousel-btn-prev { left: 16px; }
+.carousel-btn-next { right: 16px; }
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0 16px;
+}
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.indicator.active { background: var(--gold); transform: scale(1.3); }
+.indicator:hover { transform: scale(1.2); }
+
+/* ── RESPONSIVE CAROUSEL ── */
+@media (max-width: 700px) {
+  .carousel-slide { height: 380px; }
+  .carousel-btn { width: 38px; height: 38px; font-size: 18px; }
+  .carousel-btn-prev { left: 8px; }
+  .carousel-btn-next { right: 8px; }
+}
 @media (max-width: 700px) {
   .hero-split { flex-direction: column; }
   .hero-photo-col { flex: none; width: 100%; height: 320px; }
@@ -602,8 +678,8 @@ footer a:hover { color: var(--gold); }
       <a href="https://wa.me/5563992726110" class="btn-primary">Agendar consulta →</a>
       <div class="hero-micro">
         <span>Sem cirurgia</span>
-        <span>Sem corte</span>
         <span>Sem dor</span>
+        <span>Palmas, TO</span>
       </div>
     </div>
   </div>
@@ -630,12 +706,12 @@ footer a:hover { color: var(--gold); }
               <span class="hero-bio-stat-label">Orelhas recuperadas</span>
             </div>
             <div>
-              <span class="hero-bio-stat-num">Especialista</span>
-              <span class="hero-bio-stat-label">Estética Auricular</span>
+              <span class="hero-bio-stat-num">Pós</span>
+              <span class="hero-bio-stat-label">Graduada em estética</span>
             </div>
             <div>
-              <span class="hero-bio-stat-num">Biossegurança</span>
-              <span class="hero-bio-stat-label">Técnicas e Ambiente Seguros</span>
+              <span class="hero-bio-stat-num">Enf.</span>
+              <span class="hero-bio-stat-label">Formação em enfermagem</span>
             </div>
           </div>
         </div>
@@ -825,7 +901,52 @@ footer a:hover { color: var(--gold); }
   <div class="line"></div>
 </div>
 
-<!-- DEPOIMENTOS -->
+<!-- GALERIA DE RESULTADOS -->
+<section class="white">
+  <div class="container">
+    <span class="section-label">Transformações reais</span>
+    <h2 class="section-title">Veja os <em>resultados</em><br>dos nossos tratamentos</h2>
+    <p class="section-body">Cada caso é único e especial. Conheça histórias reais de pacientes que recuperaram a confiança e a beleza dos seus lóbulos.</p>
+    
+    <!-- CARROSSEL -->
+    <div class="gallery-carousel">
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="resultado_1.jpg" alt="Resultado antes e depois - Lobuloplastia">
+          </div>
+          <div class="carousel-slide">
+            <img src="resultado_2.jpg" alt="Resultado antes e depois - Lobuloplastia">
+          </div>
+          <div class="carousel-slide">
+            <img src="resultado_3.jpg" alt="Resultado antes e depois - Lobuloplastia">
+          </div>
+          <div class="carousel-slide">
+            <img src="resultado_4.jpg" alt="Resultado antes e depois - Lobuloplastia">
+          </div>
+          <div class="carousel-slide">
+            <img src="resultado_5.jpg" alt="Resultado antes e depois - Lobuloplastia">
+          </div>
+        </div>
+      </div>
+      
+      <!-- CONTROLES DO CARROSSEL -->
+      <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">❮</button>
+      <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">❯</button>
+      
+      <!-- INDICADORES -->
+      <div class="carousel-indicators">
+        <button class="indicator active" onclick="goToSlide(0)"></button>
+        <button class="indicator" onclick="goToSlide(1)"></button>
+        <button class="indicator" onclick="goToSlide(2)"></button>
+        <button class="indicator" onclick="goToSlide(3)"></button>
+        <button class="indicator" onclick="goToSlide(4)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORNAMENT -->
 <section class="white">
   <div class="container">
     <span class="section-label">Resultados reais</span>
@@ -872,7 +993,7 @@ footer a:hover { color: var(--gold); }
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
-          <p>Em alguns casos, uma sessão é suficiente. Casos mais complexos, como rasgo total ou alargamentos severos, podem exigir mais sessões e retorno para avaliação após a cicatrização. Tudo é determinado pela reação do organismo de cada pessoa.</p>
+          <p>Na maioria dos casos, uma sessão é suficiente. Casos mais complexos, como rasgo total ou alargamentos severos, podem exigir retorno para avaliação após a cicatrização. Tudo é determinado na consulta inicial.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -881,7 +1002,7 @@ footer a:hover { color: var(--gold); }
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
-          <p>A cicatrização completa ocorre em aproximadamente 30 a 60 dias. Após esse período, com a liberação da profissional, você já pode voltar a usar brincos — preferencialmente peças leves no início.</p>
+          <p>A cicatrização completa ocorre em aproximadamente 30 dias. Após esse período, com a liberação da profissional, você já pode voltar a usar brincos — preferencialmente peças leves no início.</p>
         </div>
       </div>
       <div class="faq-item">
@@ -984,7 +1105,7 @@ footer a:hover { color: var(--gold); }
       <img src="logo_taina_batista_otimizada.jpg" alt="Tainá Batista" loading="lazy">
     </div>
     <h2>Recupere seu lóbulo<br>com quem <em>entende do assunto</em></h2>
-    <p>Agende sua consulta de avaliação. A Enf. Tainá irá analisar o seu caso, explicar o protocolo indicado e você decide com calma e segurança.</p>
+    <p>Agende sua consulta de avaliação. Tainá analisa o seu caso, explica o protocolo indicado e você decide com calma e segurança.</p>
     <a href="https://wa.me/5563992726110" class="btn-primary">Agendar pelo WhatsApp →</a>
     <div class="cta-final-micro">
       <span>Palmas, TO</span>
@@ -1018,6 +1139,42 @@ footer a:hover { color: var(--gold); }
 </a>
 
 <script>
+// ── CAROUSEL FUNCTIONALITY ──
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+
+function updateCarousel() {
+  const track = document.getElementById('carouselTrack');
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  
+  // Atualizar indicadores
+  document.querySelectorAll('.indicator').forEach((ind, idx) => {
+    ind.classList.toggle('active', idx === currentSlide);
+  });
+}
+
+function moveCarousel(direction) {
+  currentSlide += direction;
+  
+  // Loop circular
+  if (currentSlide >= totalSlides) currentSlide = 0;
+  if (currentSlide < 0) currentSlide = totalSlides - 1;
+  
+  updateCarousel();
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  updateCarousel();
+}
+
+// Auto-play carousel a cada 6 segundos
+setInterval(() => {
+  moveCarousel(1);
+}, 6000);
+
+// ── FAQ TOGGLE ──
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
@@ -1025,6 +1182,7 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
+// ── INTERSECTION OBSERVER ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
