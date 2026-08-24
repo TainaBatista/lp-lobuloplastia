@@ -526,6 +526,16 @@ footer a { color: rgba(201,151,58,0.5); text-decoration: none; transition: color
 footer a:hover { color: var(--gold); }
 .footer-divider { width: 40px; height: 1px; background: rgba(201,151,58,0.2); margin: 20px auto; }
 .footer-note { font-size: 10px; color: rgba(255,255,255,0.15); line-height: 1.7; margin-top: 16px; }
+.footer-dev-credit {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
+  text-decoration: none; opacity: 0.85; transition: opacity 0.2s;
+}
+.footer-dev-credit:hover { opacity: 1; }
+.footer-dev-top { display: flex; align-items: center; gap: 12px; }
+.footer-dev-top span { font-size: 11px; letter-spacing: 0.05em; color: rgba(255,255,255,0.4); }
+.footer-dev-logo { height: 40px; width: auto; }
+.footer-dev-cta { font-family: var(--sans); font-size: 9px; font-weight: 300; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); }
 
 /* ── FLOATING WA ── */
 .wa-float {
@@ -1187,6 +1197,13 @@ footer a:hover { color: var(--gold); }
     <p>Quadra 1006 Sul, Av. LO-23, Nº 3 — Sala 05 · Palmas, TO</p>
     <div class="footer-divider"></div>
     <p class="footer-note">Os relatos apresentados são baseados em experiências reais de pacientes. Resultados individuais podem variar conforme o caso clínico e a resposta de cada organismo ao tratamento. As informações desta página têm caráter informativo e não substituem a consulta profissional.</p>
+    <a href="https://wa.me/5538991810452?text=Ol%C3%A1!%20Vi%20o%20site%20de%20lobuloplastia%20da%20Tain%C3%A1%20Batista%20e%20gostaria%20de%20falar%20sobre%20desenvolvimento%20de%20site." target="_blank" rel="noopener" class="footer-dev-credit">
+      <span class="footer-dev-top">
+        <span>Desenvolvido por</span>
+        <img src="neurolab-logo.png" alt="NeuroLab" class="footer-dev-logo">
+      </span>
+      <span class="footer-dev-cta">Clique para chamar no Whatsapp</span>
+    </a>
   </div>
 </footer>
 
